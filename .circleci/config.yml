@@ -47,8 +47,8 @@ jobs:
             # List docker images
             docker image ls
             # Tag and push image to a docker repository
-            docker tag capstone sisihliay/capstone
-            docker push sisihliay/capstone
+            docker tag capstone rajivsiddiqui/udacity-devops
+            docker push rajivsiddiqui/udacity-devops
 
   deploy-to-cluster:
     executor: aws-eks/python3
@@ -100,7 +100,7 @@ workflows:
           requires: [aws-eks/create-cluster]
       - aws-eks/update-container-image:
           cluster-name: mycapstone
-          container-image-updates: mycapstone=sisihliay/capstone
+          container-image-updates: mycapstone=rajivsiddiqui/udacity-devops
           post-steps:
               - kubernetes/delete-resource:
                   resource-names: mycapstone
