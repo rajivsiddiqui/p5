@@ -42,6 +42,7 @@ jobs:
           command: |
             #Login to docker hub
             #docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            $ cat ~/my_password.txt | docker login --username foo --password-stdin
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             # Build image and add a descriptive tag
             docker build --tag=capstone .
